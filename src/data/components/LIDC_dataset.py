@@ -95,9 +95,6 @@ class LIDC_IDRI_Dataset(Dataset):
     def __getitem__(self, index):
         image, mask = self.file_list[index]
 
-        image = self._normalize_image(image)
-        mask = self._normalize_image(mask)
-
         transformed = self.transforms(image=image, mask=mask)
         image = transformed["image"]
         mask = transformed["mask"]
