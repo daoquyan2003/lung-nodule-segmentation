@@ -1,3 +1,0 @@
-wandb_callback:
-  _target_: src.utils.callbacks.wandb_esfp_callback.WandbCallback
-  grid_shape: [1, 1]
