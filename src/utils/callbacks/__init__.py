@@ -1,1 +1,1 @@
-from .wandb_callback import WandbCallback
+from .wandb_esfp_callback import WandbCallback
