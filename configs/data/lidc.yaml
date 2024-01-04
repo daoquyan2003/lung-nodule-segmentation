@@ -11,16 +11,18 @@ img_size: 256
 transforms:
   _target_: albumentations.Compose
   transforms:
-    # - _target_: albumentations.ShiftScaleRotate
-    #   shift_limit: 0.05
-    #   scale_limit: 0.05
-    #   rotate_limit: 15
-    #   p: 0.5
+    - _target_: albumentations.ShiftScaleRotate
+      shift_limit: 0.05
+      scale_limit: 0.05
+      rotate_limit: 15
+      p: 0.15
     - _target_: albumentations.Affine
       translate_percent: [-0.1, 0.1]
-      rotate: [-25, 25]
+      rotate: [-15, 15]
       shear: [-15, 15]
       p: 0.3
+    - _target_: albumentations.RandomBrightnessContrast
+      p: 0.15
     - _target_: albumentations.HorizontalFlip
       p: 0.15
     # - _target_: albumentations.RandomRotate90

@@ -7,8 +7,9 @@ from torchvision.utils import make_grid
 from pytorch_lightning.callbacks import Callback
 
 class WandbCallback(Callback):
-    def __init__(self, grid_shape: Tuple[int, int]):
+    def __init__(self, img_size, grid_shape: Tuple[int, int]):
         self.grid_shape = grid_shape
+        self.img_size = img_size
         self.images = {
             'train': None,
             'val': None,
@@ -40,7 +41,7 @@ class WandbCallback(Callback):
             
             preds = pl_module.net(x)
         
-            preds = F.upsample(preds, size=[352,352], mode='bilinear', align_corners=False)
+            preds = F.upsample(preds, size=[self.img_size, self.img_size], mode='bilinear', align_corners=False)
             preds = preds.sigmoid()
             threshold = torch.tensor([0.5]).to(self.device)
             preds = (preds > threshold).float() * 1

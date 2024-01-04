@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import sys
 import torch.nn.functional as F
-sys.path.append('/data/thanhdd/Lang/Lung-Segmentation/src/models/components')
-from Encoder import mit
-from Decoder import mlp
+sys.path.append('/work/hpc/iai/pr1sm/lung-nodule-segmentation/src/models/components')
+from src.models.components.Encoder import mit
+from src.models.components.Decoder import mlp
 from mmcv.cnn import ConvModule
 
 class ESFPNetStructure(nn.Module):

@@ -50,17 +50,18 @@ class LIDC_IDRI_Dataset(Dataset):
                 image = np.load(dicom_path)
 
                 # image = self._normalize_image(image)
-                mask = np.load(mask_path)
+                mask = np.load(mask_path).astype(np.uint8)
 
-                # convert image, mask to tensor
+                # # convert image, mask to tensor
 
-                image = torch.from_numpy(image).to(torch.float)
-                mask = torch.from_numpy(mask).to(torch.float)
+                # image = torch.from_numpy(image).to(torch.float)
+                # mask = torch.from_numpy(mask).to(torch.float)
 
-                # add batch dimension 
+                # # add batch dimension 
 
-                image = image.unsqueeze(0)
-                mask = mask.unsqueeze(0)
+                # image = image.unsqueeze(0)
+                # mask = mask.unsqueeze(0)
+
                 file_list.append((image, mask))
         
         for dicom_path in self.clean_path:
@@ -76,17 +77,17 @@ class LIDC_IDRI_Dataset(Dataset):
                 image = np.load(dicom_path)
 
                 # image = self._normalize_image(image)
-                mask = np.load(mask_path)
+                mask = np.load(mask_path).astype(np.uint8)
 
-                # convert image, mask to tensor
+                # # convert image, mask to tensor
 
-                image = torch.from_numpy(image).to(torch.float)
-                mask = torch.from_numpy(mask).to(torch.float)
+                # image = torch.from_numpy(image).to(torch.float)
+                # mask = torch.from_numpy(mask).to(torch.float)
 
-                # add batch dimension 
+                # # add batch dimension 
 
-                image = image.unsqueeze(0)
-                mask = mask.unsqueeze(0)
+                # image = image.unsqueeze(0)
+                # mask = mask.unsqueeze(0)
 
                 file_list.append((image, mask))
 
